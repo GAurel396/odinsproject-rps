@@ -1,0 +1,6 @@
+//ask the player hey wanna play rock paper scizzors and show options.
+    //check if the input corresponds to our choices, if the player said something else say smth else. 
+///make computer generate rock paper scizzor
+//compare the results!
+//now make these things run in loop of five turns
+//win? go sleep
