@@ -8,26 +8,26 @@ function PlayRound (ComputerMove, PlayerMove ) {
         console.log ("It's a tie!")
     };
 
-    if (PlayerChoice="rock") {
-        if (ComputerMove="paper") {
+    if (PlayerMove=="rock") {
+        if (ComputerMove=="paper") {
             console.log ("You lost! Paper beats rock!")
-        } else if (ComputerMove="scissors") {
+        } else if (ComputerMove=="scissors") {
             console.log("You won! Rock beats scissors!")
         }
     }
     
-    if (PlayerChoice="paper") {
-        if (ComputerMove="scissors") {
+    if (PlayerMove=="paper") {
+        if (ComputerMove=="scissors") {
             console.log ("You lost! Scissors beat paper!")
-        } else if (ComputerMove="rock") {
+        } else if (ComputerMove=="rock") {
             console.log ("You won! Paper beats rock!")
         } 
     }
 
-    if(PlayerChoice="scissors") {
-        if (ComputerMove="rock") {
+    if(PlayerMove="scissors") {
+        if (ComputerMove=="rock") {
             console.log ("You lost! Rock beats scissors!")
-        } else if (ComputerMove ="paper") {
+        } else if (ComputerMove =="paper") {
             console.log ("You won! Scissors beat paper!")
         }
 
@@ -35,10 +35,12 @@ function PlayRound (ComputerMove, PlayerMove ) {
 }
 
 let ComputerMove=ComputerChoice();
-let PlayerMove = prompt("Choose your move:");   
-PlayerMove = PlayerMove.toLowerCase();
-if (PlayerMove!=="rock"&& PlayerMove!=="paper"&& PlayerMove!=="scissors") {
+let PlayerMove = prompt("Choose your move:");  
+PlayerMove = PlayerMove.toLowerCase(); 
+do {
+    if (PlayerMove!=="rock"&& PlayerMove!=="paper"&& PlayerMove!=="scissors") {
     console.log("Stop messing around, put in valid choice.");
-    let PlayerChoice = prompt("Choose your move:");
-PlayRound(ComputerChoice, PlayerMove)    
-}
+    PlayerMove = prompt("Choose your move:");   
+    }
+}while (PlayerMove!=="rock"&& PlayerMove!=="paper"&& PlayerMove!=="scissors");
+PlayRound(ComputerMove, PlayerMove);   
