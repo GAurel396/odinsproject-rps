@@ -38,6 +38,7 @@ function PlayRound (ComputerMove, PlayerMove ) {
         }
 
     }
+    console.log ("Scoreboard: Player -" + playerScore + "Computer -" + computerScore) 
 }
 
 function theGame () {
@@ -50,14 +51,14 @@ do {
     PlayerMove = prompt("Choose your move:");   
     }
 }while (PlayerMove!=="rock"&& PlayerMove!=="paper"&& PlayerMove!=="scissors");
- PlayRound(ComputerMove, PlayerMove);   
-console.log ("You will play again.")
-}
+ PlayRound(ComputerMove, PlayerMove); 
+    }
 
 let playerScore = 0;
 let computerScore = 0;
-theGame();
-console.log ("Final score = PC: " + computerScore + "Player=" + playerScore )
+for ( i=0; i < 5; i++) {
+    theGame()
+}
 if (playerScore>computerScore) {
     console.log("You won the tournament!")
 } else {
