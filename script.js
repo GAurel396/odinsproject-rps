@@ -11,29 +11,36 @@ function PlayRound (ComputerMove, PlayerMove ) {
     if (PlayerMove=="rock") {
         if (ComputerMove=="paper") {
             console.log ("You lost! Paper beats rock!")
+            computerScore++
         } else if (ComputerMove=="scissors") {
             console.log("You won! Rock beats scissors!")
+            playerScore++;
         }
     }
     
     if (PlayerMove=="paper") {
         if (ComputerMove=="scissors") {
             console.log ("You lost! Scissors beat paper!")
+            computerScore++
         } else if (ComputerMove=="rock") {
             console.log ("You won! Paper beats rock!")
+            playerScore++;
         } 
     }
 
-    if(PlayerMove="scissors") {
+    if(PlayerMove=="scissors") {
         if (ComputerMove=="rock") {
             console.log ("You lost! Rock beats scissors!")
+            computerScore++
         } else if (ComputerMove =="paper") {
             console.log ("You won! Scissors beat paper!")
+            playerScore++;
         }
 
     }
 }
 
+function theGame () {
 let ComputerMove=ComputerChoice();
 let PlayerMove = prompt("Choose your move:");  
 PlayerMove = PlayerMove.toLowerCase(); 
@@ -43,4 +50,25 @@ do {
     PlayerMove = prompt("Choose your move:");   
     }
 }while (PlayerMove!=="rock"&& PlayerMove!=="paper"&& PlayerMove!=="scissors");
-PlayRound(ComputerMove, PlayerMove);   
+ PlayRound(ComputerMove, PlayerMove);   
+console.log ("You will play again.")
+}
+
+let playerScore = 0;
+let computerScore = 0;
+theGame();
+console.log ("Final score = PC: " + computerScore + "Player=" + playerScore )
+if (playerScore>computerScore) {
+    console.log("You won the tournament!")
+} else {
+    console.log("You lost the tournament!")
+}
+
+
+
+
+
+
+
+
+
