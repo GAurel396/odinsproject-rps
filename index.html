@@ -2,10 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script  type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" src="style.css">
+    <script  type="text/javascript" src="script.js" defer></script>
     <title>Document</title>
 </head>
 <body>
-    <h1>I dont want this page to be lonely and empty</h1>
+    <h1 class="title">Play Rock/Paper/Scissor!</h1>
+    <p class="pc_choice">Your Choice:</p>
+        <button class="btn" id="btn_paper">Paper</button>
+        <button class="btn" id="btn_scissors">Scissors</button>
+        <button class="btn" id="btn_rock">Rock</button>
+    <p>Computer Choice:<p>
+    <div id="result">
+        <h3>Result<h3>
+
+    </div>
+    <div id="score">
+        <h3>Score</h3>
+        <p>Player: <span class="player_score">0</span></p>
+        <p>Computer: <span class="computer_score">0</span></p>
+    </div>
 </body>
 </html>

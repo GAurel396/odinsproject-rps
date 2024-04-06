@@ -1,9 +1,36 @@
+//variables
+    let PlayerMove
+
+
+//functions
 function ComputerChoice () {
     const CompPossible = ["rock", "paper", "scissors"];
-    let CompPick = Math.floor(Math.random() * 3);
-    return CompPossible [CompPick];
-    }
-function PlayRound (ComputerMove, PlayerMove ) {
+    let ComputerMove = Math.floor(Math.random() * 3);
+    return CompPossible [ComputerMove];
+}
+
+//game proper
+document.getElementById("btn_paper").addEventListener("click", function (){
+    PlayerMove = "paper"
+    console.log(PlayerMove)
+    PlayRound(PlayerMove,ComputerChoice())
+})
+
+document.getElementById("btn_scissors").addEventListener("click", function (){
+    PlayerMove = "scissors"
+    console.log(PlayerMove)
+    PlayRound(PlayerMove,ComputerChoice())
+})
+
+document.getElementById("btn_rock").addEventListener("click", function (){
+    PlayerMove = "rock"
+    console.log(PlayerMove)
+    PlayRound(PlayerMove,ComputerChoice())
+})
+
+
+/*
+function PlayRound (PlayerMove, ComputerMove) {
     if (PlayerMove === ComputerMove) {
         console.log ("It's a tie!")
     };
@@ -65,11 +92,4 @@ if (playerScore>computerScore) {
     console.log("You lost the tournament!")
 }
 
-
-
-
-
-
-
-
-
+*/
