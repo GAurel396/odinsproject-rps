@@ -10,12 +10,10 @@
     let comp_choice_text = document.createElement ("p")
     comp_choice_text.style.fontWeight = "900"
     result_div.appendChild(result)
-    let round_number = document.querySelector("#round_number")
-    let roundCount = 1
     let computerScore = 0
     let playerScore = 0
     comp_choice_div.appendChild(comp_choice_text)
-    let choice_btn = document.querySelector(".choice.btn")
+    let choice_btns = document.querySelectorAll(".choice_btn");
     let restart_button =document.querySelector("#reset_button")
 
 //functions
@@ -24,10 +22,29 @@ function ComputerChoice () {
     let ComputerMove = Math.floor(Math.random() * 3);
     return CompPossible [ComputerMove];
 }
-
 function RestartGame() {
+    playerScore = 0
+    computerScore= 0
+    human_score.textContent = playerScore;
+    computer_score.textContent = computerScore;
+    choice_btns.forEach((btn) => {
+        btn.style.visibility = "visible";}
+    )
+    result.textContent = "";
+    final_victor.textContent = "";
+    restart_button.style.visibility = "hidden"
+}
+function EndGame () {
+    choice_btns.forEach ((btn) => {
+        btn.style.visibility = "hidden"
+    }  
+    )
+    restart_button.style.visibility = "visible"
+    restart_button.addEventListener("click", RestartGame);
 
 }
+
+
 
 //game proper
 document.getElementById("btn_paper").addEventListener("click", function (){
@@ -86,18 +103,16 @@ function PlayRound (PlayerMove, ComputerMove) {
         }
 
     }
-    roundCount ++
     human_score.textContent = playerScore
     computer_score.textContent = computerScore
-    round_number.textContent = roundCount
     if (playerScore == 5) {
         result_div.appendChild(final_victor)
-        final_victor.textContent= "You have overcome your enemy!"
-
+        final_victor.textContent= "You have overcome your enemy! Play Again?"
+        EndGame()
     }
-
     if (computerScore == 5 ) {
         result_div.appendChild(final_victor) 
-        final_victor.textContent="A horrible fate has befallen you..."
+        final_victor.textContent="A horrible fate has befallen you... Play again?"
+        EndGame()
     }
 }
