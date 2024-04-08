@@ -1,12 +1,32 @@
 //variables
     let PlayerMove
-
+    let result = document.createElement ("p")
+    let human_score = document.querySelector("#player_score")
+    let computer_score = document.querySelector("#computer_score")
+    let game_end = document.createElement ("p") 
+    let result_div = document.querySelector ("#result")
+    let final_victor = document.createElement ("h3")
+    let comp_choice_div = document.querySelector ("#comp_choice")
+    let comp_choice_text = document.createElement ("p")
+    comp_choice_text.style.fontWeight = "900"
+    result_div.appendChild(result)
+    let round_number = document.querySelector("#round_number")
+    let roundCount = 1
+    let computerScore = 0
+    let playerScore = 0
+    comp_choice_div.appendChild(comp_choice_text)
+    let choice_btn = document.querySelector(".choice.btn")
+    let restart_button =document.querySelector("#reset_button")
 
 //functions
 function ComputerChoice () {
     const CompPossible = ["rock", "paper", "scissors"];
     let ComputerMove = Math.floor(Math.random() * 3);
     return CompPossible [ComputerMove];
+}
+
+function RestartGame() {
+
 }
 
 //game proper
@@ -29,67 +49,55 @@ document.getElementById("btn_rock").addEventListener("click", function (){
 })
 
 
-/*
 function PlayRound (PlayerMove, ComputerMove) {
+    comp_choice_text.textContent= ComputerMove
     if (PlayerMove === ComputerMove) {
         console.log ("It's a tie!")
+        result.textContent = "You tied!"
     };
 
     if (PlayerMove=="rock") {
         if (ComputerMove=="paper") {
-            console.log ("You lost! Paper beats rock!")
+            result.textContent="You lost! Paper beats rock!"
             computerScore++
         } else if (ComputerMove=="scissors") {
-            console.log("You won! Rock beats scissors!")
+            result.textContent="You won! Rock beats scissors!"
             playerScore++;
         }
     }
     
     if (PlayerMove=="paper") {
         if (ComputerMove=="scissors") {
-            console.log ("You lost! Scissors beat paper!")
+            result.textContent="You lost! Scissors beat paper!"
             computerScore++
         } else if (ComputerMove=="rock") {
-            console.log ("You won! Paper beats rock!")
+            result.textContent= "You won! Paper beats rock!"
             playerScore++;
         } 
     }
 
     if(PlayerMove=="scissors") {
         if (ComputerMove=="rock") {
-            console.log ("You lost! Rock beats scissors!")
+            result.textContent="You lost! Rock beats scissors!"
             computerScore++
         } else if (ComputerMove =="paper") {
-            console.log ("You won! Scissors beat paper!")
+            result.textContent="You won! Scissors beat paper!"
             playerScore++;
         }
 
     }
-    console.log ("Scoreboard: Player -" + playerScore + "Computer -" + computerScore) 
-}
+    roundCount ++
+    human_score.textContent = playerScore
+    computer_score.textContent = computerScore
+    round_number.textContent = roundCount
+    if (playerScore == 5) {
+        result_div.appendChild(final_victor)
+        final_victor.textContent= "You have overcome your enemy!"
 
-function theGame () {
-let ComputerMove=ComputerChoice();
-let PlayerMove = prompt("Choose your move:");  
-PlayerMove = PlayerMove.toLowerCase(); 
-do {
-    if (PlayerMove!=="rock"&& PlayerMove!=="paper"&& PlayerMove!=="scissors") {
-    console.log("Stop messing around, put in valid choice.");
-    PlayerMove = prompt("Choose your move:");   
-    }
-}while (PlayerMove!=="rock"&& PlayerMove!=="paper"&& PlayerMove!=="scissors");
- PlayRound(ComputerMove, PlayerMove); 
     }
 
-let playerScore = 0;
-let computerScore = 0;
-for ( i=0; i < 5; i++) {
-    theGame()
+    if (computerScore == 5 ) {
+        result_div.appendChild(final_victor) 
+        final_victor.textContent="A horrible fate has befallen you..."
+    }
 }
-if (playerScore>computerScore) {
-    console.log("You won the tournament!")
-} else {
-    console.log("You lost the tournament!")
-}
-
-*/
